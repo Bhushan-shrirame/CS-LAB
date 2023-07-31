@@ -1,77 +1,86 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-class node{
+class custom_stack{
+    int arr[100];
+    int top_index;
+    int size;
     public:
-    int data;
-    node* next;
-    node(int x) {
-        data = x;
+    custom_stack(){
+        size = 0;
+        top_index = 99;
     }
-};
 
-class Stack{
-    node* top;
-    public:
-    Stack(){
-        top = NULL;
-    }
-    int show_top() {return top->data;}
     void push(int x){
-        node* temp = new node(x);
-        if(top){
-            temp->next = top;
-            top = temp;
+        if(size == 99){
+            cout<<"Stack Full";
+            return;
+        }
+        if(top_index == 0){
+            top_index = 100;
+        }
+        top_index--;
+        size++;
+        arr[top_index] = x;
+    }
+    int top(){
+        return arr[top_index];
+    }
+    int pop(){
+        if(size == 0){
+            cout<<"Stack Empty";
+            return -1;
+        }
+        int y = arr[top_index];
+        if(top_index == 99){
+            top_index = -1;
+        }
+        top_index++;
+        size--;
+        return y;
+    }
+
+};
+int main(){
+    custom_stack s;
+    string inp;
+    getline(cin,inp);
+    for(int i=0;i<inp.size();i++)
+    {
+        if(inp[i]==' ')
+            continue;
+        else if(isdigit(inp[i]))
+        {
+            int num=0;
+            while(isdigit(inp[i]))
+            {
+                num=num*10+(int)(inp[i]-'0');
+                i++;
+            }
+            i--;
+            s.push(num);
         }
         else{
-            temp->next = NULL;
-            top = temp;
-        }
-    }
-
-    int pop(){
-        int x = top->data;
-        if(top->next){
-            node* temp = top;
-            top = top->next;
-            free(temp);  
-        }else{
-            free(top);
-        }
-        return x;
-    }
-};
-
-
-
-int main(){
-    Stack s;
-    string postfix_expression;
-    while(getline(cin,postfix_expression,' ')){
-        if(!postfix_expression.compare("+")){
-            int y = s.pop();
-            int x = s.pop();
-            int z = x+y;
-            s.push(x+y);
-        }else if(!postfix_expression.compare("-")){
-            int y = s.pop();
-            int x = s.pop();
-            s.push(x-y);            
-        }else if(!postfix_expression.compare("/")){
-            int y = s.pop();
-            int x = s.pop();
-            s.push(x/y);
-        }else if(!postfix_expression.compare("*")){
-            int y = s.pop();
-            int x = s.pop();
-            s.push(x*y);
-        }else if(!postfix_expression.compare("%")){
-            int y = s.pop();
-            int x = s.pop();
-            s.push(x%y);
-        }else{
-            int x = stoi(postfix_expression);
-            s.push(x);
+            if(inp[i] == '+'){
+                int t1 = s.pop();
+                int t2 = s.pop();
+                s.push(t2+t1);
+            }else if(inp[i] == '-'){
+                int t1 = s.pop();
+                int t2 = s.pop();
+                s.push(t2-t1);
+            }else if(inp[i] == '/'){
+                int t1 = s.pop();
+                int t2 = s.pop();
+                s.push(t2/t1);
+            }else if(inp[i] == '*'){
+                int t1 = s.pop();
+                int t2 = s.pop();
+                s.push(t2*t1);
+            }else if(inp[i] == '%'){
+                int t1 = s.pop();
+                int t2 = s.pop();
+                s.push(t2%t1);
+            }else continue;
         }
     }
     cout<<s.pop();
