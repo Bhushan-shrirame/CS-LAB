@@ -24,10 +24,10 @@ bool condition(Student s1,Student s2){
 }
 int main()
 {
-    //To fetch the data from file input.txt
+    //Taking input from input.txt
     ifstream inpt;
     inpt.open("input.txt");
-    //To write the data into output.txt after sorting.
+    //To save in output.txt
     ofstream outpt;
     outpt.open("output.txt");
     int n;
@@ -43,7 +43,7 @@ int main()
         Student s(roll_number, cgpa,name);
         data[i] = s;
     }
-    //Sorting the records of file input.txt based on Student Name to file output.txt
+    //Sorting 
     sort(data,data + n,condition);
     for(int i=0;i<n;i++){
         outpt<<data[i].name<<" "<<data[i].cgpa<<" "<<data[i].roll<<endl;
