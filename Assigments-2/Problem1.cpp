@@ -54,5 +54,5 @@ int main()
 	if (res == -2)
 		cout << "Cycle Detected";
 	else
-		cout << res;
+		cout << "The minimum product of edges from S to D is " << res << endl;
 }
