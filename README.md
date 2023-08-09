@@ -98,7 +98,7 @@ Output:
   <li>
     Let S = {x1, x2, . . .xn
 } be a set of n integers. A pair (xi, xj ) (where i ≠ j) is said to be the
-closest pair if |xi-xj | ≤ |xi’-xj’|, for all possible pairs (xi’, xj’), i′, j′ = 1, 2, . . . , n, i′ ≠ j′. (10Marks)
+closest pair if |xi-xj | ≤ |xi’-xj’|, for all possible pairs (xi’, xj’), i′, j′ = 1, 2, . . . , n, i′ ≠ j′. (10Marks)<br>
 (a) Describe a method for finding the closest pair among the set of integers in
 S using O(n log2 n) comparisons.<br>
 (b) Now suggest an appropriate data structure for storing the elements in S
