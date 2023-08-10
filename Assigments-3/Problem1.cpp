@@ -21,7 +21,9 @@ void allTraversal(Node* root)
 	vector<int> in;
 
 	stack<pair<Node*, int> > s;
+
 	s.push(make_pair(root, 1));
+    
 	while (!s.empty()) {
 		pair<Node*, int> p = s.top();
 
@@ -82,7 +84,7 @@ int main()
 	root->left->right = new Node(5);
 	root->right->left = new Node(6);
 	root->right->right = new Node(7);
-    
+
 	allTraversal(root);
 
 	return 0;
