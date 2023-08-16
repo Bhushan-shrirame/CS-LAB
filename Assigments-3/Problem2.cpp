@@ -25,7 +25,7 @@ int diameterOpt(struct node* root, int* height)
 
 	*height = max(lh, rh) + 1;
 
-	return max(lh + rh + 1, max(ldiameter, rdiameter));
+	return max(lh + rh, max(ldiameter, rdiameter));
 }
 
 struct node* newNode(int data)
