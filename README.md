@@ -114,7 +114,7 @@ time complexity.<br>
   </li>
 </ul>
 
-<h2>Assignment 1</h2>
+<h2>Assignment 3</h2>
 <ul>
 
 <li>Given a binary tree, write a program to print all the nodes of the binary tree in
