@@ -171,7 +171,7 @@ time.<br>
 An obstacle and space are marked as 1 or 0 respectively in the grid. A path that the
 robot takes cannot include any square that is an obstacle.<br>
 Write a program to return the number of possible unique paths that the robot can
-take to reach the bottom-right corner.<li>
+take to reach the bottom-right corner.</li>
 <li>You have planned some train travelling one year in advance. The days of the year in
 which you will travel are given as an integer array of days. Each day is an integer from
 1 to 365.<br>
