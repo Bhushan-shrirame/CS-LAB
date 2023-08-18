@@ -162,8 +162,6 @@ Output: 4<br>
 
 <h2>Assignment 4</h2>
 <ul>
-  <li>
-
 <li>Write a program to find the maximum number of edges that can be added to a tree
 without violating the bipartite property.</li>
 <li>You are given an m x n integer array grid. There is a robot initially located at the
@@ -201,8 +199,17 @@ In total, you spent $17 and covered all the days of your travel.<br>
 
 <li>Given an array arr of positive integers. Write a program to find the maximum length
 of a subsequence of the array which satisfies the following conditions:<br>
-I. arr.length >= 3
-II. There exists some index i (0-indexed) with 0 < i < arr.length - 1 such that:
+  <ol>
+    <li>arr.length >= 3</li>
+<li>There exists some index i (0-indexed) with 0 < i < arr.length - 1 such that:
+<ol>
+ <li>arr[0] < arr[1] < ... < arr[i - 1] < arr[i]
+ <li>arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
+  </ol>
+   </li>
+</ol>
 
-1. arr[0] < arr[1] < ... < arr[i - 1] < arr[i]
-2. arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
+
+
+
+</ul>
