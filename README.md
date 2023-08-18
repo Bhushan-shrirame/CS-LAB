@@ -208,8 +208,4 @@ of a subsequence of the array which satisfies the following conditions:<br>
   </ol>
    </li>
 </ol>
-
-
-
-
 </ul>
