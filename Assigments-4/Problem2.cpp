@@ -29,5 +29,5 @@ int main(){
     }
   }
 
-  cout << visited[n-1][m-1] << endl;
-}
+  cout << "Number of path robot can take is : " << visited[n-1][m-1] << endl;
+} 
