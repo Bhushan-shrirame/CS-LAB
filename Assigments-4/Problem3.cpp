@@ -1,44 +1,58 @@
-// C++ program for the above approach
-
 #include <bits/stdc++.h>
-using namespace std;
-
-int MinCost(vector<int>& days, vector<int>& costs)
+int get_min(int a, int b, int c)
 {
-
-	queue<pair<int, int> > qmonth;
-	queue<pair<int, int> > qweek;
-
-	int ans = 0;
-
-	for (int day : days) {
-
-		while (!qmonth.empty()
-			&& qmonth.front().first + 30 <= day) {
-			qmonth.pop();
-		}
-
-		while (!qweek.empty()
-			&& qweek.front().first + 7 <= day) {
-			qweek.pop();
-		}
-
-		qmonth.push(make_pair(day, ans + costs[2]));
-		qweek.push(make_pair(day, ans + costs[1]));
-
-		ans = min(ans + costs[0],
-				min(qmonth.front().second,
-					qweek.front().second));
-	}
-	return ans;
+    if (a < b)
+    {
+        if (a < c)
+        {
+            return a;
+        }
+        else
+        {
+            return c;
+        }
+    }
+    else
+    {
+        if (b < c)
+        {
+            return b;
+        }
+        else
+            return c;
+    }
 }
-
-
 int main()
 {
-	vector<int> arr{ 2, 4, 6, 7, 8, 10, 15 };
-	vector<int> cost{ 3, 108, 20 };
-	cout << MinCost(arr, cost) << endl;
+    int n;
+    std::cin >> n;
+    int cost[3] = {2, 7, 15};
+    int costs[367];
+    int days[n];
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> days[i];
+    }
+    int j = 0;
+    costs[0] = 0;
+    for (int i = 1; i < 367; i++)
+    {
+        if (j < n && i == days[j])
+        {
+            j++;
+            int cost7 = 0;
+            int cost30 = 0;
+            if (i - 7 > -1)
+                cost7 = costs[i - 7];
+            if (i - 30 > -1)
+                cost30 = costs[i - 30];
 
-	return 0;
+            costs[i] = get_min(costs[i - 1] + cost[0], cost7 + cost[1], cost30 + cost[2]);
+        }
+        else
+        {
+            costs[i] = costs[i - 1];
+        }
+    }
+    std::cout << costs[366];
 }
