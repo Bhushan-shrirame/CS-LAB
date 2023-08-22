@@ -9,7 +9,7 @@ int main(){
         cin >> arr[i];
     }
     
-    int peak=0, bottom1 = arr[0], bottom2 , mls, pre;
+    int peak=0, bottom1 = arr[0], bottom2=0 , mls=0, pre=0;
    
     for(int i=0;i <n; i++){
        if(arr[i] == arr[i+1]){
@@ -28,10 +28,10 @@ int main(){
        
        if( pre < mls) pre= mls;
 
+       
+    }
        if(pre <=2 ){
         return 0;
        }
-       
-    }
     cout << "The maximum length of a subsequence of the array is "<<  pre << endl;
 }
