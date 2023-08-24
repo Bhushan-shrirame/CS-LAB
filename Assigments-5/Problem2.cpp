@@ -24,5 +24,3 @@ int main()
     int res = maxUnique(S , st) ;
     cout<<res << endl;
 }
-
-
