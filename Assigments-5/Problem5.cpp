@@ -72,7 +72,7 @@ void sumZeroMatrix(int a[][MAX], int row, int col)
 	// 	cout << endl;
 	// }
 
-    cout << "the size of the largest sub-matrix whose sum is 0.  " << fdown - fup + 1 << "x" <<  fright - fleft + 1 << endl;
+    cout << "the size of the largest sub-matrix whose sum is 0 is  " << fdown - fup + 1 << "x" <<  fright - fleft + 1 << endl;
 
 }
 int main()
