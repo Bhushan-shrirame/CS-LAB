@@ -22,5 +22,5 @@ int main()
     string S = "";
     cin >> S;
     int res = maxUnique(S , st) ;
-    cout<<res << endl;
+    cout<< "the maximum number of unique substrings " <<res << endl;
 }
