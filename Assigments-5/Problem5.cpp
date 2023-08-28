@@ -64,23 +64,14 @@ void sumZeroMatrix(int a[][MAX], int row, int col)
 		cout << "No zero-sum sub-matrix exists";
 		return;
 	}
-  
-	// for (int j = fup; j <= fdown; j++) {
-	// 	for (int i = fleft; i <= fright; i++){
-	// 		cout << a[j][i] << " " ;
-    //     }
-	// 	cout << endl;
-	// }
-
     cout << "the size of the largest sub-matrix whose sum is 0 is  " << fdown - fup + 1 << "x" <<  fright - fleft + 1 << endl;
-
 }
 int main()
 {
-	int a[][MAX] = { { 9, 7, 16, 5 ,5 },
-					{ 1, -6, -7, 3  , 5},
-					{ 1, 8, 7, 9  , 5},
-					{ 7, -2, 0, 10  , 5} };
+	int a[][MAX] = { { 9, 7, 16, 5 },
+					{ 1, -6, -7, 3 },
+					{ 1, 8, 7, 9 },
+					{ 7, -2, 0, 10} };
 
 	int row = 4, col = 5;
 	sumZeroMatrix(a, row, col);
