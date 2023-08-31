@@ -30,7 +30,5 @@ int main(){
 
         maxprofit += tempprofit;
     }
-
-
     cout << " the maximum profit we can achieve after assigning the workers to the jobs is  " << maxprofit << endl;
 }
