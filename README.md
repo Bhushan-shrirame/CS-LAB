@@ -209,3 +209,62 @@ of a subsequence of the array which satisfies the following conditions:<br>
    </li>
 </ol>
 </ul>
+
+
+
+<h2>Assignment 5</h2>
+<ul>
+<li>You are given an array of prices where prices[i] is the price of a given stock on an ith
+day. You want to maximise your profit by choosing a single day to buy one stock and
+choosing a different day to sell that stock in the future.<br>
+Return the maximum profit you can achieve from this transaction. If you cannot
+achieve any profit, return 0.</li>
+<br>
+<li>Given a string, return the maximum number of unique substrings that the given
+string can be split into.<br>
+Note: You can split the string into any list of non-empty substrings, where the
+concatenation of the substrings forms the original string. However, you must split the
+substrings such that all of them are unique.<br>
+A substring is a contiguous sequence of characters within a string.<br>
+Example:<br>
+Input: s = "ababccc"<br>
+Output: 5<br>
+Explanation: One way to split maximally is ['a', 'b', 'ab', 'c', 'cc']. Splitting like ['a', 'b',
+'a', 'b', 'c', 'cc'] is not valid as you have 'a' and 'b' multiple times.<br></li>
+<br>
+<li>Given an integer n, find a sequence that satisfies all of the following:<br>
+<ol>
+<li>The integer 1 occurs once in the sequence.
+<li>Each integer between 2 and n occurs twice in the sequence.
+<li>For every integer, i between 2 and n, the distance between the two
+occurrences of i is exactly i.
+<li> The distance between two numbers on the sequence, a[i] and a[j] is the
+absolute difference between their indices, |j - i|.
+</ol>
+Return the lexicographically largest sequence. It is guaranteed that under the given
+constraints, there is always a solution.
+<br><br>
+A sequence a is lexicographically larger than a sequence b (of the same length) if in
+the first position where a and b differ, sequence a has a number greater than the corresponding number in b. For example, [0,1,9,0] is lexicographically larger than
+[0,1,5,6] because the first position they differ in is at the third number, and 9 is
+greater than 5. <br>
+<br>
+Example 1:<br>
+Input: n = 3<br>
+Output: [3,1,2,3,2]<br>
+Explanation: [2,3,2,1,3] is also a valid sequence, but [3,1,2,3,2] is the
+lexicographically largest valid sequence.<br>
+Example 2:<br>
+Input: n = 5<br>
+Output: [5,3,1,4,3,5,2,4,2]<br></li>
+<br>
+<li>The thief has found himself a new place for his thievery again. There is only one
+entrance to this area, called the root. Besides the root, each house has only one
+parent house. After a tour, the smart thief realized that all houses in this place form a
+binary tree. It will automatically contact the police if two directly-linked houses are
+broken into on the same night.<br>
+Given the root of the binary tree, return the maximum amount of money the thief
+can rob without alerting the police.</li>
+<br>
+<li>Given a two-dimensional matrix of size N X M, find the size of the largest sub-matrix whose sum is 0.</li>
+</ul>
