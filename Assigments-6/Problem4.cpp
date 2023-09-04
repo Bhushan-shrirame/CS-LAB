@@ -23,16 +23,11 @@ int solution(vector<int> &nums)
 }
 int main()
 {
-    int t;
-    cin >> t;
-    while (t--)
-    {
         int N;
         cin >> N;
-        vector<int> arr(N);
+        vector<int> nums(N);
         int maxScore = 0;
         for (int i = 0; i < N; i++)
-            cin >> arr[i];
-        cout << solution(arr) << endl;
-    }
+            cin >> nums[i];
+        cout << "maximum possible value of the final array is "<< solution(nums) << endl;
 }
