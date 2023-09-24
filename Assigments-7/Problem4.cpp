@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+
 // Structure to store row and column information
 struct RowColInfo {
     int value;
@@ -37,7 +39,7 @@ vector<vector<int>> constructMatrixM(vector<vector<int>>& M) {
     });
     
     sort(colInfo.begin(), colInfo.end(), [](const RowColInfo& a, const RowColInfo& b) {
-        return a.value z b.value;
+        return a.value > b.value;
     });
     
     // Construct M' based on sorted arrays
