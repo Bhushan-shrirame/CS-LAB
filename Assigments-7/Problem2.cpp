@@ -13,12 +13,10 @@ int maxinsorted(int arrs[] , int N , int M){
     return count;
 }
 int maxinumsorted(int arrus[], int N , int M){
-    int count =0 ,sum =0;
+    sort(arrus,arrus +N);
+     int count =0 ,sum =0;
     for(int i=0;i<N;i++){
         sum += arrus[i];
-        if(sum > M){
-            sum -= arrus[i];
-        }
         if(sum <= M){
             count++;
         }
