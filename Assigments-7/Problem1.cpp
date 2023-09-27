@@ -1,35 +1,34 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-int numDecodings(string s) {
-    if (s.empty() || s[0] == '0') {
-        return 0;
-    }
-    
-    int n = s.size();
-    vector<int> dp(n + 1, 0);
-    
-    dp[0] = 1;
-    dp[1] = 1;
-    
-    for (int i = 2; i <= n; ++i) {
-        if (s[i - 1] != '0') {
-            dp[i] += dp[i - 1];
+class Solution {
+public:
+    int countWays(string s, int n){
+        int count[n + 1];
+        count[0] = 1;
+        count[1] = 1;
+        if(s[0] == '0')
+            return 0;
+        for(int i = 2; i <= n; i++){
+            count[i] = 0;
+            if(s[i - 1] > '0')
+                count[i] = count[i - 1];
+            if(s[i - 2] == '1' || (s[i - 2] == '2' && s[i - 1] < '7')){
+                count[i] += count[i - 2];
+            }
         }
-        
-        int twoDigit = stoi(s.substr(i - 2, 2));
-        if (twoDigit >= 10 && twoDigit <= 26) {
-            dp[i] += dp[i - 2];
-        }
+        return count[n];
     }
-    
-    return dp[n];
-}
-
-int main() {
-    string encoded_message ;
-    cin >> encoded_message;
-    int ways = numDecodings(encoded_message);
-    cout << "Number of ways to decode: " << ways << endl;
-    return 0;
+public:
+    int numDecodings(string s) {
+        return countWays(s, s.size());
+    }
+};
+int main()
+{
+    string s;
+    cout << "Enter the string to decode. ";
+    cin>>s;
+    Solution soln;
+    int num=soln.numDecodings(s);
+    cout<<"number of ways to decode it: "<<num<<endl;
 }
