@@ -3,11 +3,7 @@ using namespace std;
 
 double inf = std::
 	numeric_limits<double>::infinity();
-double solver(int s, int d,
-			vector<pair<pair<int, int>,
-						double> >
-				ed,
-			int n)
+double solver(int s, int d,vector<pair<pair<int, int>,double> >ed,int n)
 {
 	if (s == d)
 		return 0;
