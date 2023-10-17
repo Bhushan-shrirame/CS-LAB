@@ -1,3 +1,7 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
 class Solution {
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
@@ -37,8 +41,32 @@ public:
            }
            
         }
+        cout << fullprice << endl; 
         return fullprice;
         
     }
 };
+
+
+int main() {
+
+    Solution s;
+    int n , src, dst , k;
+    cin >> n >> src >>dst >> k;
+    vector<vector<int>> v;
+    int row, column, a;
+    cin>>row >> column;
+    for(int i=0 ; i<row ; i++) {
+         vector<int> p;
+         for(int j=0 ; j<column ; j++) {
+              cin>>a;
+              p.push_back(a);
+         }
+         v.push_back(p);
+    }
+
+     cout  << "the cheapest price from " << src <<" to " << dst << " with at most "<< k <<" stops."<< s.findCheapestPrice( n ,v , src ,dst , k) << endl;
+
+   return 0;
+}
 
