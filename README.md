@@ -268,3 +268,50 @@ can rob without alerting the police.</li>
 <br>
 <li>Given a two-dimensional matrix of size N X M, find the size of the largest sub-matrix whose sum is 0.</li>
 </ul>
+
+
+
+<h2>Assignment 6</h2>
+<ul>
+
+
+<li>Given an integer array of N elements, divide this array into K non-empty subsets such
+that the sum of elements in every subset is the same.
+<li>A transformation sequence from word startWord to word endWord using a dictionary
+wordList is a sequence of words beginWord -> s1 -> s2 -> ... -> sk such that:<br>
+● Every adjacent pair of words differs by a single letter.<br>
+● Every si for 1 <= i <= k is in wordList. Note that startWord does not need to be
+in wordList.<br>
+● sk == endWord<br>
+Given two words, startWord and endWord, and a dictionary wordList, return all the
+shortest transformation sequences from startWord to endWord, or an empty list if no
+such sequence exists. Each sequence should be returned as a list of the words
+[beginWord, s1
+, s2
+, ..., sk].
+
+<li>You have n jobs and m workers. You are given three arrays: difficulty, profit, and
+worker where:<br>
+● difficulty[i] and profit[i] are the difficulty and the profit of the ith job, and<br>
+● worker[j] is the ability of jth worker (i.e., the jth worker can only complete a
+job with difficulty at most worker[j]).<br>
+● Every worker can be assigned at most one job, but one job can be completed
+multiple times.<br>
+For example, if three workers attempt the same job that pays $1, then the total profit
+will be $3. If a worker cannot complete any job, their profit is $0.<br>
+Return the maximum profit we can achieve after assigning the workers to the jobs.<br>
+Example 1:<br>
+Input: difficulty = [2,4,6,8,10], profit = [10,20,30,40,50], worker = [4,5,6,7]<br>
+Output: 100<br>
+Explanation: Workers are assigned jobs of difficulty [4,4,6,6] and they get a profit of
+[20,20,30,30] separately.<br>
+
+Example 2:<br>
+Input: difficulty = [85,47,57], profit = [24,66,99], worker = [40,25,25]<br>
+Output: 0<br>
+<li>Given an integer array nums. The value of this array is defined as the sum of |nums[i]
+- nums[i + 1]| for all 0 <= i < nums. length - 1. You are allowed to select any subarray
+of the given array and reverse it. You can perform this operation only once. Find the
+maximum possible value of the final array.
+
+</ul>
