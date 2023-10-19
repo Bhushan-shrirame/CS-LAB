@@ -3,31 +3,36 @@ using namespace std;
 
 class solution{
 public:
-   
-   vector<int>ans;
 
-   int findmedian(vector<int> arr){
+   vector<float>ans;
+   float findmedian(vector<float> arr){
     sort(arr.begin() , arr.end());
-
+    int n = arr.size();
+    int m = n/2;
+    if(n%2 !=0){
+        return arr[m]; 
+    }
+    return ((arr[m -1] + arr[m]) / 2);
    }
 
-   vector<int> medianarray(vector<int> nums , int k){
+   vector<float> medianarray(vector<int> nums , int k){
     int n = nums.size();
-    for(int i =0;i<n;i++){
-        vector<int> arr;
-        int b;
-        for(int j=i;j<i+k-1;j++){
-            cin >> b;
-            arr.push_back(b);
+    for(int i =0;i<n-(k-1);i++){
+        vector<float> arr;
+        for(int j=i;j<i+k;j++){
+            arr.push_back(nums[j]);
         }
         ans.push_back(findmedian(arr));
         arr.clear();
     }
+    int m = ans.size();
+    for(int i=0;i<m;i++){
+        cout<< ans[i] << " ";
+    }
+    cout << endl;
     return ans;
    }
 };
-
-
 
 
 int main(){
