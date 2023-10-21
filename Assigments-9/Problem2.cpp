@@ -26,24 +26,33 @@ public:
         arr.clear();
     }
     int m = ans.size();
+    cout << setprecision(5) << fixed;
+    cout << "OUTPUT" << "[";
     for(int i=0;i<m;i++){
-        cout<< ans[i] << " ";
+        cout<< ans[i] << ", ";
     }
-    cout << endl;
+    cout << "]" << endl;
     return ans;
    }
 };
 
 
 int main(){
-    solution s;
-    int n ,a ,k;
-    cin >> n;
-    vector<int> nums;
-    for(int i=0; i< n; i++){
-        cin >> a;
-        nums.push_back(a);
+    int t;
+    cin >> t;
+    while(t){ 
+        solution s;
+        int n ,a ,k;
+        cin >> n;
+        vector<int> nums;
+        for(int i=0; i< n; i++){
+            cin >> a;
+            nums.push_back(a);
+        }
+        cin >>k;
+        s.medianarray(nums , k);
+        t--;
     }
-    cin >>k;
-    s.medianarray(nums , k);
 }
+
+

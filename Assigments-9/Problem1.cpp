@@ -44,7 +44,7 @@ int main(){
     Solution sol;
     int t;
     cin >> t;
-    while(t){
+    while(t != 0){
         int s,t,a,b ,n;
         vector<int> servers,tasks ,ans;
         cin >> s >> t;
