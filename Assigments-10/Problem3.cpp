@@ -1,62 +1,86 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <unordered_set>
+#include <set>
 #include <bits/stdc++.h>
-using namespace std;
-
 
 class Twitter {
-    class Tweet {
-        int user;
-        int tweetId;
-        public Tweet(int _user, int _tweetId) {
-            this.user = _user;
-            this.tweetId = _tweetId;
-        }
-    }
-    HashMap<Integer, Set<Integer>> followings;
-    List<Tweet> tweets;
+private:
+    int timestamp;
+    std::unordered_map<int, std::vector<std::pair<int, int>>> user_tweets; // userId -> [(timestamp, tweetId)]
+    std::unordered_map<int, std::unordered_set<int>> user_follows; // userId -> {followeeId}
 
-    public Twitter() {
-        this.followings = new HashMap<>();
-        this.tweets = new ArrayList<>();
+public:
+    Twitter() {
+        timestamp = 0;
     }
-    
-    public void postTweet(int userId, int tweetId) {
-        this.tweets.add(new Tweet(userId, tweetId));
+
+    void postTweet(int userId, int tweetId) {
+        user_tweets[userId].emplace_back(timestamp++, tweetId);
     }
-    
-    public List<Integer> getNewsFeed(int userId) {
-        int n = this.tweets.size();
-        List<Integer> ans = new ArrayList<>();
-        Set<Integer> follows  = this.followings.get(userId);
-        for(int i=n-1; i>=0; i--) {
-            if(ans.size() >= 10) return ans;
-            Tweet t = this.tweets.get(i);
-            if(t.user == userId || (follows != null && follows.contains(t.user))) {
-                ans.add(t.tweetId);
+
+    std::vector<int> getNewsFeed(int userId) {
+        std::vector<std::pair<int, int>> feed;
+        feed.insert(feed.end(), user_tweets[userId].begin(), user_tweets[userId].end());
+
+        if (user_follows.find(userId) != user_follows.end()) {
+            for (int followee : user_follows[userId]) {
+                feed.insert(feed.end(), user_tweets[followee].begin(), user_tweets[followee].end());
             }
         }
-        return ans;
-    }
-    
-    public void follow(int followerId, int followeeId) {
-        Set<Integer> set;
-        if(this.followings.containsKey(followerId)) {
-            set = this.followings.get(followerId);
-        } else {
-            set = new HashSet<>();
-            this.followings.put(followerId, set);
-        }
-        set.add(followeeId);
-    }
-    
-    public void unfollow(int followerId, int followeeId) {
-        Set<Integer> set = this.followings.get(followerId);
-        if(set != null) set.remove(followeeId);
-    }
-}
 
-int main(){
-    Twitter sol;
-    // Update the solve function as per the requirement
-    sol.sovle();
+        // Sort the feed by timestamp in descending order.
+        std::sort(feed.begin(), feed.end(), std::greater<std::pair<int, int>>());
+
+        std::vector<int> result;
+        int count = 0;
+        for (auto& tweet : feed) {
+            result.push_back(tweet.second);
+            if (++count == 10) break;
+        }
+
+        return result;
+    }
+
+    void follow(int followerId, int followeeId) {
+        if (followerId != followeeId) {
+            user_follows[followerId].insert(followeeId);
+        }
+    }
+
+    void unfollow(int followerId, int followeeId) {
+        user_follows[followerId].erase(followeeId);
+    }
+};
+
+int main() {
+    Twitter twitter;
+    twitter.postTweet(1, 5);
+    std::vector<int> feed1 = twitter.getNewsFeed(1);  // Output: [5]
+    twitter.follow(1, 2);
+    twitter.postTweet(2, 6);
+    std::vector<int> feed2 = twitter.getNewsFeed(1);  // Output: [6, 5]
+    twitter.unfollow(1, 2);
+    std::vector<int> feed3 = twitter.getNewsFeed(1);  // Output: [5]
+
+    std::cout << "Feed 1: ";
+    for (int tweet : feed1) {
+        std::cout << tweet << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << "Feed 2: ";
+    for (int tweet : feed2) {
+        std::cout << tweet << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << "Feed 3: ";
+    for (int tweet : feed3) {
+        std::cout << tweet << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
