@@ -36,15 +36,16 @@ public:
     int shoppingOffers(vector<int>& price, vector<vector<int>>& special, vector<int>& needs) {
         int n = price.size();
         int ans = solve(price,special,needs,0,n);
+        cout << "OUTPUT: "<< ans << endl;
         return ans;
     }
 };
 
 int main(){
     Solution sol;
-    int t , ans;
-    // cin >> t;
-    // while(t--){
+    int t ;
+    cin >> t;
+    while(t--){
         int p,s1,s2,n;
         cin >> p >> s1 >> s2 >> n;
         vector<int> price,need;
@@ -68,8 +69,7 @@ int main(){
             cin >> pa;
             need.push_back(pa);
         }
-        ans = sol.shoppingOffers(price, special, need);
-        cout << "OUTPUT" << ans << endl;
-    // }
+        sol.shoppingOffers(price, special, need);
+    }
     return 0;
 }

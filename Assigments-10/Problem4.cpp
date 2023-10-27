@@ -72,13 +72,10 @@ public:
 };
 int main(){
     Solution sol;
-    int t , ans;
-    // cin >> t;
-    // while(t--){
-        string password;
-        getline (cin, password);
-        ans = sol.strongPasswordChecker(password);
-        cout << "OUTPUT: " << ans << endl;
-    // }
+    int ans;
+    string password;
+    getline (cin, password);
+    ans = sol.strongPasswordChecker(password);
+    cout << "OUTPUT: " << ans << endl;
     return 0;
 }
